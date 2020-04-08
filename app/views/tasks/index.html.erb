@@ -1,0 +1,14 @@
+
+<br>
+
+<%= link_to 'タスク作成', new_task_path %>
+
+<%= month_calendar events: @tasks do |date, tasks| %>
+  <%= link_to date.day, new_task_path(date: date), :style=>"color:black;" %>
+
+  <% tasks.each do |task| %>
+    <div class="card">
+      <%= link_to task.title.truncate(6), task, :style=>"color:black;" %>
+    </div>
+  <% end %>
+<% end %>

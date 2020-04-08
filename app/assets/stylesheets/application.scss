@@ -1,0 +1,48 @@
+
+@import "bootstrap";
+.head{
+  background-color: #BBBBBB;
+}
+.side{
+  background-color: #BBBBBB;
+  color:white;
+  li{
+    list-style: none;
+  }
+}
+.simple-calendar {
+  .day {
+    border :solid;
+    background-color:white;
+  }
+
+  .wday-0 {}
+  .wday-1 {}
+  .wday-2 {}
+  .wday-3 {}
+  .wday-4 {}
+  .wday-5 {}
+  .wday-6 {}
+
+  .today {
+    background-color: #CCFFFF;
+  }
+  .past {}
+  .future {}
+
+  .start-date {
+  }
+
+  .prev-month {
+    background-color:#808080;
+  }
+  .next-month {
+    background-color:#808080;
+ 
+  }
+
+  .current-month {}
+
+  .has-events {}
+}
+

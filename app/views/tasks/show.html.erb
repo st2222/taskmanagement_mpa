@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>タイトル</strong>
+  <%= @task.title %>
+</p>
+
+<p>
+  <strong>時間</strong>
+  <%= @task.start_time.strftime("%Y-%m-%d %H:%M") %>
+</p>
+
+<p>
+  <strong>内容</strong>
+  <%= @task.content %>
+</p>
+
+<%= link_to '編集', edit_task_path(@task) %> |
+<%= link_to '戻る', tasks_path %>
+<%= link_to '削除', task_path(@task), :method => :delete %>
+
