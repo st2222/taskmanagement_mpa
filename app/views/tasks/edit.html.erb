@@ -1,23 +1,46 @@
-<%= form_with(model: @task, local: true) do |form| %>
+<div class="form">
+  <%= form_with(model: @task, local: true) do |form| %>
 
-  <div class="title">
-    <%= form.label :title %>
-    <%= form.text_field :title, value: @task.title %>
-  </div>
+    <div class="title">
+      <%= form.label :title, "タイトル" %>
+      <%= form.text_field :title, value: @task.title %>
+    </div>
+    <div class="content">
+      <%= form.label :content, "内容" %>
+      <%= form.text_area :content, value: @task.content %>
+    </div>
+    <div class="time">
+      <%= form.label :start_time, "開始日" %>
+      <%= form.datetime_select :start_time, value: @task.start_time %>
+    </div>
+    <div class="time">
+      <%= form.label :end_tiem, "終了日" %>
+      <%= form.datetime_select :end_time, value: @task.start_time %>
+    </div>
+    
+    <div>
+      <%= form.label :importance, "重要性" %>
+      <%= form.radio_button :importance, :"3", value: @task.importance %>
+      <%= form.label :importance, "高"%>
+      <%= form.radio_button :importance, :"2", value: @task.importance %>
+      <%= form.label :importance, "中"%>
+      <%= form.radio_button :importance, :"1", value: @task.importance %>
+      <%= form.label :importance, "低"%>
+    </div>
 
-  <div class="time">
-    <%= form.label :start_time %>
-    <%= form.datetime_select :start_time, value: @task.start_time %>
-  </div>
+    <div>
+      <%= form.label :urgency, "緊急性" %>
+      <%= form.radio_button :urgency, :"3", value: @task.urgency %>
+      <%= form.label :urgency, :高 %>
+      <%= form.radio_button :urgency, :"2", value: @task.urgency %>
+      <%= form.label :urgency, :中 %>
+      <%= form.radio_button :urgency, :"1", value: @task.urgency %>
+      <%= form.label :urgency, :低 %>
+    </div>
 
-  <div class="content">
-    <%= form.label :content %>
-    <%= form.text_field :content, value: @task.content %>
-  </div>
+    <div class="submit">
+      <%= form.submit %>
+    </div>
 
-
-  <div class="submit">
-    <%= form.submit %>
-  </div>
-
-<% end %>
+  <% end %>
+</div>

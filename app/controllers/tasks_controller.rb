@@ -1,17 +1,17 @@
 class TasksController < ApplicationController
   before_action :find_task, only: [:show, :edit, :destroy, :update]
+  before_action :authenticate_user!
   def index
     @tasks = Task.all
   end
 
   def show
+    @task_branches = TaskBranch.where(task_id: @task.id)
   end
 
   def new
     date = params[:date]
-    @task = Task.new
-    @task.start_time = date
-
+    @task = Task.new(start_time: date, end_time: date)
   end
   def create
     Task.create!(task_parameter)

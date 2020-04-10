@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  task: one
+  branch_id: 1
+  content: MyString
+
+two:
+  task: two
+  branch_id: 1
+  content: MyString

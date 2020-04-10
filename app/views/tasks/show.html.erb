@@ -1,21 +1,112 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>タイトル</strong>
-  <%= @task.title %>
-</p>
+<div class="show">
+  <div class="title">
+    <strong>タイトル</strong>
+    <%= @task.title %>
+  
+  <span class="time">
+    <strong>終了日</strong>
+    <%= @task.end_time.strftime("%Y-%m-%d") %>
+  </span>
+  <span class="time">
+    <strong>開始日</strong>
+    <%= @task.start_time.strftime("%Y-%m-%d") %>
+  </span>
+  </div>
 
-<p>
-  <strong>時間</strong>
-  <%= @task.start_time.strftime("%Y-%m-%d %H:%M") %>
-</p>
+  <p class="content">
+    <strong>内容</strong><br/>
+    <span class="naiyou">
+    <%= @task.content %>
+    </span>
+  </p>
+  <p class="importance">
+    <strong>重要度</strong>
+    <% if @task.importance == 3 %>
+     高
+    <% elsif @task.importance == 2 %>
+     中
+    <% elsif @task.importance == 1 %>
+     低
+    <% end %>
+  </p>
+  <p class="urgency">
+    <strong>緊急度</strong>
+    <% if @task.urgency == 3 %>
+     高
+    <% elsif @task.urgency == 2 %>
+     中
+    <% elsif @task.urgency == 1 %>
+     低
+    <% end %>
+  </p>
+  <%= link_to '編集', edit_task_path(@task) %> |
+  <%= link_to '戻る', tasks_path %>
+  <%= link_to '削除', task_path(@task), :method => :delete %>
+  <div class="form">
+    枝追加
+    <div class="form-group">
+      <input type="text" name="content" class="form-control">
+      <button>追加</button>
+    </div>
 
-<p>
-  <strong>内容</strong>
-  <%= @task.content %>
-</p>
+  </div>
+  <div class="brach_list">
+      <strong>枝一覧</strong>
+      <ul class="branch">
+        
+      </ul>
 
-<%= link_to '編集', edit_task_path(@task) %> |
-<%= link_to '戻る', tasks_path %>
-<%= link_to '削除', task_path(@task), :method => :delete %>
+  </div>
+</div>
+<script>
+  var data = {
+    task_id: <%= @task.id %>
+  };
+  $.ajax({
+    url: '/task_branches',
+    contentType: 'application/json',
+    type: 'GET',
+    dataType: 'json',
+    // フォーム要素の内容をハッシュ形式に変換
+    data: data,
 
+    timeout: 5000,
+  })
+  .done(function(data) {
+    for(var i = 0; i < data.length; i++){
+      $(".branch").append("<li>" + data[i]["content"] + "</li>");
+    }
+  })
+  .fail(function() {
+    alert("fail");
+    alert(JSON.stringify(data));
+
+  });
+  
+  $('button').click(function(){
+    var data = {
+      content: $('input[name="content"]').val(),
+      task_id: <%= @task.id %>
+    };
+  $.ajax({
+    url: '/task_branches',
+    contentType: 'application/json',
+    type: 'POST',
+    dataType: 'json',
+    data: JSON.stringify(data),
+    timeout: 5000,
+  })
+  .done(function(add_data) {
+    for(var i = 0; i < add_data.length; i++){
+      $(".branch").append("<li>" + add_data[i]["content"] + "</li>");
+    }
+    $("input").val("");
+  })
+  .fail(function() {
+    alert("fail");
+    alert(JSON.stringify(data));
+
+  });
+  })
+  </script>
