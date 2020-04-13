@@ -39,6 +39,15 @@
       <%= form.radio_button :urgency, :"1" %>
       <%= form.label :urgency, :低 %>
     </div>
+    <div class="share_with_friends form-group">
+      <%= form.label :"友達と共有する" %>
+      <input type="checkbox" name="friends_check">
+    </div>
+    <div class="friends" style="display:none;">
+        <%= form.label :friend, :"友達" %>
+        <%= form.collection_select :friend, Friend.friends_list(current_user), :id, :name, :include_blank => true %>
+    </div>
+    <%= form.hidden_field :user_id, :value => current_user.id %>
 
     <div class="submit">
       <%= form.submit %>
@@ -46,3 +55,15 @@
 
   <% end %>
 </div>
+<script>
+  $('input[name="friends_check"]').change(() => {
+
+    if($('input[name="friends_check"]').prop('checked')){
+      $(".friends").show();
+    }else{
+      $(".friends").hide();
+
+    }
+
+  });
+</script>

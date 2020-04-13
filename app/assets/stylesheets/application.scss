@@ -22,6 +22,18 @@
 #notice{
   background-color:#AAFFFF;
 }
+a{
+  color:black;
+}
+.search{
+  .table{
+    width:600px;
+    margin: 0 auto;
+  }
+  h2{
+    margin:20px;
+  }
+}
 .show{
   width:700px;
   margin: 0 auto;
@@ -53,6 +65,9 @@
     font-size:25px;
   }
 
+}
+.loginout{
+  float:right;
 }
 .simple-calendar {
   .day {

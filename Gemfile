@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.0'
 
+gem "composite_primary_keys"
 gem 'devise'
 gem 'rails-i18n', '~> 5.1'
 gem 'simple_calendar', '~> 2.0'

@@ -1,0 +1,36 @@
+<div class="search">
+
+  <h2>検索結果</h2>
+
+  <table class="table">
+    <tr class="success">
+      <th>名前</th>
+      <th></th>
+    </tr>
+    <% @users_h.each do |user, status| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td class="">
+          <% if status == 0 %>
+            <%= form_with(url: friends_request_path, method: "post", local: true, class: "form-inline") do |form| %>
+              <%= form.hidden_field :to_user, :value => user.id %>
+              <div class="submit btn btn-info">
+                <%= form.submit "申請" %>
+              </div>
+            <% end %>
+          <% elsif status == 1 %>
+            <div>友達</div>
+          <% else %>
+            <%= link_to '承認', friend_path(user.id, current_user.id), method: :put %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+
+  </table>
+
+
+
+
+
+</div>

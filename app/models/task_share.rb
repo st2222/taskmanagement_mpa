@@ -1,0 +1,2 @@
+class TaskShare < ApplicationRecord
+end

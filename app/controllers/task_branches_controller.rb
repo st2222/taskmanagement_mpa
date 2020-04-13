@@ -1,4 +1,5 @@
 class TaskBranchesController < ApplicationController
+  before_action :authenticate_user!
   def create
     @task_branch = TaskBranch.new(task_branch_parameter)
     last_branch = TaskBranch.where(task_id: params[:task_id].to_s).order(:branch_id).last

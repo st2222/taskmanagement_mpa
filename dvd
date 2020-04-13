@@ -1,0 +1,10 @@
+ id | name |       email       |                      encrypted_password                      | reset_password_token | reset_password_sent_at | remember_created_at |         created_at         |         updated_at         
+----+------+-------------------+--------------------------------------------------------------+----------------------+------------------------+---------------------+----------------------------+----------------------------
+  1 |      | aaa@gmail.com     | $2a$11$LuDkbA/WRhWTiYr5te9RfeQ/ZnEawiAo/WxHnnLnk7bGNpTZqmeUK |                      |                        |                     | 2020-04-10 14:29:46.112049 | 2020-04-10 14:29:46.112049
+  2 |      | aaaa@gmail.com    | $2a$11$RuPr2B.tN7E7hWJOQftftermsRcfXdqA/JKS8ZKICxGqpa4Ce55jq |                      |                        |                     | 2020-04-10 15:18:55.037494 | 2020-04-10 15:18:55.037494
+  3 |      | aaaaa@gmail.com   | $2a$11$y7au34eyAhoQ7PGzsvDuEeNgXYdvDwP6bffVO0T89oBrQFRMnTXi6 |                      |                        |                     | 2020-04-10 15:52:06.780622 | 2020-04-10 15:52:06.780622
+  4 |      | aaaaaaa@gmail.com | $2a$11$LuYt4zu3GXDLI6sNDbOSqOqZSavKc0mg3iiBnCdB4CBefAVZQpHju |                      |                        |                     | 2020-04-10 15:54:06.083511 | 2020-04-10 15:54:06.083511
+  5 |      | dfaaaa@gmail.com  | $2a$11$ODj5AxmMMk3ViYUOMnlcreQjbOnzGpHuxZYNKEUc4aTh0dPPLyIhq |                      |                        |                     | 2020-04-10 15:55:57.258759 | 2020-04-10 15:55:57.258759
+  6 |      | aaaafgd@gmail.com | $2a$11$A3iCKSCh6sP/LMaf3xkH9uWYp/p0L2VzywCRDEecjGKKDMeDnD3FW |                      |                        |                     | 2020-04-10 15:58:23.804082 | 2020-04-10 15:58:23.804082
+(6 行)
+
