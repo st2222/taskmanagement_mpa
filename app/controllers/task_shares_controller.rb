@@ -1,2 +1,0 @@
-class TaskSharesController < ApplicationController
-end
