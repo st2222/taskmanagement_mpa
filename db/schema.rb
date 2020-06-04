@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_12_114423) do
+ActiveRecord::Schema.define(version: 2020_04_10_115614) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,19 +32,6 @@ ActiveRecord::Schema.define(version: 2020_04_12_114423) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["task_id"], name: "index_task_branches_on_task_id"
-  end
-
-  create_table "task_shares", force: :cascade do |t|
-    t.bigint "task_id", null: false
-    t.bigint "user1_id", null: false
-    t.bigint "user2_id", null: false
-    t.integer "group_id"
-    t.string "value1"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["task_id"], name: "index_task_shares_on_task_id"
-    t.index ["user1_id"], name: "index_task_shares_on_user1_id"
-    t.index ["user2_id"], name: "index_task_shares_on_user2_id"
   end
 
   create_table "tasks", force: :cascade do |t|
@@ -79,8 +66,5 @@ ActiveRecord::Schema.define(version: 2020_04_12_114423) do
   add_foreign_key "friends", "users", column: "from_friend_id"
   add_foreign_key "friends", "users", column: "to_friend_id"
   add_foreign_key "task_branches", "tasks"
-  add_foreign_key "task_shares", "tasks"
-  add_foreign_key "task_shares", "users", column: "user1_id"
-  add_foreign_key "task_shares", "users", column: "user2_id"
   add_foreign_key "tasks", "users"
 end

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'friends/requested_list', to: 'friends#requested_list'
   get 'friends/request_list', to: 'friends#request_list'
   put 'friends/:from_friend_id/:to_friend_id', to: 'friends#approve', as: 'friend'
+  get 'tasks/list', to: 'tasks#list'
   devise_for :users
   root to: 'tasks#index'
   resources :tasks

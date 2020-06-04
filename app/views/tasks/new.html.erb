@@ -45,7 +45,7 @@
     </div>
     <div class="friends" style="display:none;">
         <%= form.label :friend, :"友達" %>
-        <%= form.collection_select :friend, Friend.friends_list(current_user), :id, :name, :include_blank => true %>
+        <%= form.collection_select :value1, Friend.friends_list(current_user), :id, :name, :include_blank => true %>
     </div>
     <%= form.hidden_field :user_id, :value => current_user.id %>
 

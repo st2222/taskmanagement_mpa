@@ -1,0 +1,25 @@
+
+  <table class="table">
+    <tr>
+      <th>タイトル</th>
+      <th>内容</th>
+      <th>開始日</th>
+      <th>終了日</th>
+    </tr>
+    <% @tasks.each do |task| %>
+    <tr>
+      <td>
+        <%= task.title %>
+      </td>
+      <td>
+        <%= task.content %>
+      </td>
+      <td>
+        <%= task.start_time %>
+      </td>
+      <td>
+        <%= task.end_time %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
